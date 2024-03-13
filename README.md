@@ -1,4 +1,4 @@
-Clone this repositry using 'git clone' command
+Clone this repositry using 'git clone' command\n
 open project in vscode
 change file name '.env.example' to '.env'
 start xampp server and open php my admin

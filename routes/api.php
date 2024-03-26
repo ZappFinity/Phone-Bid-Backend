@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Comparison\ComparisonController;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -18,6 +19,15 @@ Route::controller(BlogController::class)->group(function () {
     Route::prefix('blog')->group(function () {
         Route::get('/list', [BlogController::class, 'index']);
         Route::get('/show/{id}', [BlogController::class, 'show']);
+    });
+});
+/**
+ * Comparison Routes
+ */
+Route::controller(ComparisonController::class)->group(function () {
+    Route::prefix('comparison')->group(function () {
+        Route::get('/list', [ComparisonController::class, 'index']);
+        Route::get('/show/{id}', [ComparisonController::class, 'show']);
     });
 });
 /** 

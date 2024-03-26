@@ -4,60 +4,57 @@ namespace App\Http\Controllers\Comparison;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Comparison;
 
 class ComparisonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        //only mobile name and id
+        $mobiles = Comparison::select('id', 'name')->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'List of all mobiles',
+            'data' => $mobiles
+        ]);
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $mobile = Comparison::find($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Mobile details',
+            'data' => $mobile
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //

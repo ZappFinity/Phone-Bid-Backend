@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Comparison\ComparisonController;
+use App\Http\Controllers\ChangePasswordController;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -33,6 +34,9 @@ Route::controller(ComparisonController::class)->group(function () {
 /** 
  * Default Route
  */
+
+ //change password 
+Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -31,12 +31,12 @@ Route::controller(ComparisonController::class)->group(function () {
         Route::get('/show/{id}', [ComparisonController::class, 'show']);
     });
 });
-/** 
+/**
  * Default Route
  */
 
-//change password 
-Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);
+//change password
+Route::post('/changepassword', [ChangePasswordController::class, 'changePassword']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

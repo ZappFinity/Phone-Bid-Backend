@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Comparison\ComparisonController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\Mobile\NewMobileController;
+use App\Http\Controllers\Mobile\UsedMobileController;
+
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -31,12 +34,24 @@ Route::controller(ComparisonController::class)->group(function () {
         Route::get('/show/{id}', [ComparisonController::class, 'show']);
     });
 });
+
+/**
+ * Mobile Routes
+ */
+Route::prefix('mobile')->group(function () {
+    Route::get('/new', [NewMobileController::class, 'index']);
+    Route::get('/new/show/{id}', [NewMobileController::class, 'show']);
+    Route::get('/used', [UsedMobileController::class, 'index']);
+    Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
+});
 /**
  * Default Route
  */
 
 //change password
 Route::post('/changepassword', [ChangePasswordController::class, 'changePassword']);
+//forgotpassword
+Route::post('/sendresetlink', [ChangePasswordController::class, 'forgotPassword'])->name('password.reset');;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

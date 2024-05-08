@@ -45,6 +45,7 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'FM radio, recording',
                 'wifi' => 'Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot',
                 'nfc' => 'Yes',
+                'is_new' => true,
             ],
             // realme gt
             [
@@ -79,6 +80,7 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'No',
                 'wifi' => 'Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot',
                 'nfc' => 'Yes',
+                'is_new'=> false,
             ],
 
             //samsung a52
@@ -114,6 +116,7 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'FM radio',
                 'wifi' => 'Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot',
                 'nfc' => 'Yes',
+                'is_new' => false,
             ],
 
             //tecno spark 20 pro plus
@@ -149,6 +152,7 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'FM radio',
                 'wifi' => 'Wi-Fi 802.11 b/g/n, hotspot',
                 'nfc' => 'No',
+                'is_new' => true,
             ],
             //xaoimi mi 11 lite
             [
@@ -183,11 +187,12 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'No',
                 'wifi' => 'Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot',
                 'nfc' => 'Yes',
+                'is_new' => false,
             ],
         ];
 
         foreach ($comparisons as $comparison) {
-            \App\Models\Comparison::create($comparison);
+            \App\Models\Mobile::create($comparison);
         }
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Accessories\AccessoriesController;
 use App\Http\Controllers\Blog\BlogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,13 +46,21 @@ Route::prefix('mobile')->group(function () {
     Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
 });
 /**
+ * Accessories Routes
+ */
+Route::prefix('accessories')->group(function () {
+    Route::get('/list', [AccessoriesController::class, 'index']);
+    Route::get('/show/{id}', [AccessoriesController::class, 'show']);
+});
+/**
  * Default Route
  */
 
 //change password
 Route::post('/changepassword', [ChangePasswordController::class, 'changePassword']);
 //forgotpassword
-Route::post('/sendresetlink', [ChangePasswordController::class, 'forgotPassword'])->name('password.reset');;
+Route::post('/sendresetlink', [ChangePasswordController::class, 'forgotPassword'])->name('password.reset');
+;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

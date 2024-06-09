@@ -34,8 +34,20 @@ class UsedMobileController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = \Validator::make($request->all(), [
+            'name' => 'required',
+            'price' => 'required',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors()->first(),
+            ]);
+        }
         $mobile = new Mobile();
-        $mobile->ad_poster_id = auth()->user()->id;
+        $mobile->ad_poster_id = request()->user()->id;
         $mobile->image = $request->image;
         $mobile->name = $request->name;
         $mobile->price = $request->price;

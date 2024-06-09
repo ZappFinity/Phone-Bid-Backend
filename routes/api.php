@@ -17,6 +17,10 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('mobile/used/store', [UsedMobileController::class, 'store']);
+});
+
 /**
  * Blog Routes
  */
@@ -43,7 +47,6 @@ Route::prefix('mobile')->group(function () {
     Route::get('/new', [NewMobileController::class, 'index']);
     Route::get('/new/show/{id}', [NewMobileController::class, 'show']);
     Route::get('/used', [UsedMobileController::class, 'index']);
-    Route::post('/used/store', [UsedMobileController::class, 'store']);
     Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
 });
 /**

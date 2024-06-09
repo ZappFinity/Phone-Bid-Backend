@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mobiles()
+    {
+        return $this->hasMany(Mobile::class, 'ad_poster_id');
+    }
 }

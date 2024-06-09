@@ -43,6 +43,7 @@ Route::prefix('mobile')->group(function () {
     Route::get('/new', [NewMobileController::class, 'index']);
     Route::get('/new/show/{id}', [NewMobileController::class, 'show']);
     Route::get('/used', [UsedMobileController::class, 'index']);
+    Route::post('/used/store', [UsedMobileController::class, 'store']);
     Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
 });
 /**

@@ -10,6 +10,7 @@ class Mobile extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ad_poster_id',
         'image',
         'name',
         'price',
@@ -43,4 +44,9 @@ class Mobile extends Model
         'nfc',
         'is_new'
     ];
+
+    public function adPoster()
+    {
+        return $this->belongsTo(User::class, 'ad_poster_id');
+    }
 }

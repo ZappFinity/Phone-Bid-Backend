@@ -34,10 +34,41 @@ class UsedMobileController extends Controller
      */
     public function store(Request $request)
     {
+        $user = request()->user();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthenticated'], 401);
+        }
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required',
-
+            'release_date' => 'nullable',
+            'sim_support' => 'nullable',
+            'operating_system' => 'nullable',
+            'phone_weight' => 'nullable',
+            'phone_dimensions' => 'nullable',
+            'screen_size' => 'nullable',
+            'screen_resolution' => 'nullable',
+            'screen_type' => 'nullable',
+            'screen_protection' => 'nullable',
+            'internal_memory' => 'nullable',
+            'ram' => 'nullable',
+            'card_slot' => 'nullable',
+            'processor' => 'nullable',
+            'gpu' => 'nullable',
+            'battery' => 'nullable',
+            'front_camera' => 'nullable',
+            'front_flash' => 'nullable',
+            'front_video_recording' => 'nullable',
+            'back_camera' => 'nullable',
+            'back_flash' => 'nullable',
+            'back_video_recording' => 'nullable',
+            'bluetooth' => 'nullable',
+            '3G' => 'nullable',
+            '4G/LTE' => 'nullable',
+            '5G' => 'nullable',
+            'radio' => 'nullable',
+            'wifi' => 'nullable',
+            'nfc' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -47,7 +78,7 @@ class UsedMobileController extends Controller
             ]);
         }
         $mobile = new Mobile();
-        $mobile->ad_poster_id = request()->user()->id;
+        $mobile->ad_poster_id = $user->id;
         $mobile->image = $request->image;
         $mobile->name = $request->name;
         $mobile->price = $request->price;

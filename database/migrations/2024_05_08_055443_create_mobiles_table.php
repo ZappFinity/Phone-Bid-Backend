@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('mobiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ad_poster_id')->nullable()->constrained('users')->onDelete('cascade');
-            $table->string('image')->nullable()->default('nill');
+            $table->text('image')->nullable()->default('nill');
             $table->string('name');
             $table->string('price')->nullable()->default(00);
             $table->string('release_date')->nullable()->default('nill');

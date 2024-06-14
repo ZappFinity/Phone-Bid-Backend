@@ -84,11 +84,11 @@ class UsedMobileController extends Controller
             $mobile->ad_poster_id = $user->id;
             $mobile->image = $request->imageUrl ?? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAY1BMVEX///8AAADf399tbW2hoaFqamr5+fmWlpa2trbw8PDr6+vc3Nxzc3P29vb8/Pzz8/Ohopxzc22MjIw7OzvKysp/f3+vr69cXFzAwMAqKioUFBQ1NTXR0dFVVVUeHh7l5eVFRUVhR57QAAACaUlEQVR4nO3c23KiQBSFYbY2Z2hmkIOoUd//KQfUycQMM4ZeNOmi1n/hTdxVX0nbEBPxPMYYY+wb0smpCcOwrMOX1WX/0JwSvaQvj7ZHmdTRj/LlfGktsstC9eXC7U6kThfztbJrimkzRXOUdiFhnMkumT6W7CSL59f8XaDkauDrhVdRwdyakS6t7M0m99Je5rWMFsnVdPQq0XyOfxaKMh1VEs4pGU9ncjKdPUlmf7vWW9mYzm5kS6AX+wjQt78T5hjQ/gnZ+UNMINragXNSxgOB9q/8MWAWWt8IQaAicO3Axvq5bu3bDDdqFBi7vlE7/y62D/Qg4M8ftoFB5DgwVpnbwGLlQPtvktUDp34yOzkUaP2SHwTaPxejQNtHeP1r0PV3sfMbNc/FXrB3HOj89aD7V9RrB6bW/5y49t+Lnf9kgUAC4QhEIxCNQDQC0QhEIxCNQDQC0QhEIxCNQDQC0QhEIxCNQDQC0QhEIxCNQDQC0QhEIxCNQDQC0QhEIxDNeaDz39B2/hUkEI1AuFoq09FK6gWAofkdRYDRCe3Pnelodza8U82kEl8as8lGfKNb/UxLe9GhS72ntaSDsfSnf/hNu0OzyM238lKebzmj4/GKJ056kNL6113uJZkcyokH61IeJFvgAN9LVCdybP0v1/bP75R9n9b31ZbHVfl2nnJntfNbWcV53i/MW3PDfi/7fFhZyb20iqKoUdHLVNM/VOljbFiaAzS4Wefh6ccLl/cVRfFOTC6PNpt0rE3f7efJewOv980M/Aj9Qx2sN+6HV/VT8f3Hw9NuEw+VlYP8X/PLFtIwxhj7jn4BJy8vI31MspEAAAAASUVORK5CYII=';
             $mobile->name = $request->name ?? 'nill';
-            $mobile->price = $request->price ?? 0;
+            $mobile->price = 'Rs. ' . $request->price ?? 0;
             $mobile->release_date = $request->release_date ?? 'nill';
             $mobile->sim_support = $request->sim_support ?? 'nill';
             $mobile->operating_system = $request->operating_system ?? 'nill';
-            $mobile->phone_weight = $request->phone_weight ?? 'nill';
+            $mobile->phone_weight = $request->phone_weight . 'g' ?? 'nill';
             $mobile->phone_dimensions = $request->phone_dimensions ?? 'nill';
             $mobile->screen_size = $request->screen_size ?? 'nill';
             $mobile->screen_resolution = $request->screen_resolution ?? 'nill';
@@ -107,9 +107,9 @@ class UsedMobileController extends Controller
             $mobile->back_flash = $request->back_flash ?? 'nill';
             $mobile->back_video_recording = $request->back_video_recording ?? 'nill';
             $mobile->bluetooth = $request->bluetooth ?? 'nill';
-            $mobile->{'3G'} = $request->{'3G'} ?? 'nill';
-            $mobile->{'4G/LTE'} = $request->{'4G/LTE'} ?? 'nill';
-            $mobile->{'5G'} = $request->{'5G'} ?? 'nill';
+            $mobile->{'3G'} = $request->threeg ?? 'nill';
+            $mobile->{'4G/LTE'} = $request->fourG ?? 'nill';
+            $mobile->{'5G'} = $request->FiveG ?? 'nill';
             $mobile->radio = $request->radio ?? 'nill';
             $mobile->wifi = $request->wifi ?? 'nill';
             $mobile->nfc = $request->nfc ?? 'nill';

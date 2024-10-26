@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Accessories\AccessoriesController;
 use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\MobileRepairing\MobileRepairingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -56,6 +57,13 @@ Route::prefix('accessories')->group(function () {
     Route::get('/list', [AccessoriesController::class, 'index']);
     Route::get('/show/{id}', [AccessoriesController::class, 'show']);
 });
+/**
+ * Mobile Repairing Routes
+ */
+Route::middleware('auth:sanctum')->prefix('mobile-repairing')->group(function () {
+    Route::post('/store', [MobileRepairingController::class, 'store']);
+});
+
 /**
  * Default Route
  */

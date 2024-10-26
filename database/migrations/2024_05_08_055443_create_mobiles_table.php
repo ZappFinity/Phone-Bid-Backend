@@ -45,6 +45,8 @@ return new class extends Migration {
             $table->string('wifi')->nullable()->default('nill');
             $table->string('nfc')->nullable()->default('nill');
             $table->boolean('is_new')->default(false);
+            $table->text('lat')->default('0.0');
+            $table->text('lng')->default('0.0');
             $table->timestamps();
         });
     }

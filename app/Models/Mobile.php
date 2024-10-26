@@ -42,7 +42,9 @@ class Mobile extends Model
         'radio',
         'wifi',
         'nfc',
-        'is_new'
+        'is_new',
+        'lat',
+        'lng'
     ];
 
     public function adPoster()

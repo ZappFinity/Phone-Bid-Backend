@@ -114,6 +114,8 @@ class UsedMobileController extends Controller
             $mobile->wifi = $request->wifi ?? 'nill';
             $mobile->nfc = $request->nfc ?? 'nill';
             $mobile->is_new = $request->is_new ?? false;
+            $mobile->lat = $request->lat;
+            $mobile->lng = $request->lng;
             $mobile->save();
 
             return response()->json([

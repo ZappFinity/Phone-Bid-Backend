@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Bid;
 
 class Mobile extends Model
 {
@@ -52,5 +53,10 @@ class Mobile extends Model
     public function adPoster()
     {
         return $this->belongsTo(User::class, 'ad_poster_id');
+    }
+
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Accessories\AccessoriesController;
+use App\Http\Controllers\Bid\BidController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\MobileRepairing\MobileRepairingController;
 use Illuminate\Http\Request;
@@ -56,6 +57,13 @@ Route::prefix('mobile')->group(function () {
 Route::prefix('accessories')->group(function () {
     Route::get('/list', [AccessoriesController::class, 'index']);
     Route::get('/show/{id}', [AccessoriesController::class, 'show']);
+});
+/**
+ * Bid Routes
+ */
+Route::prefix('bid')->group(function () {
+    Route::get('/mobile/list', [BidController::class, 'index']);
+    Route::get('/place/{id}', [BidController::class, 'placeBid']);
 });
 /**
  * Mobile Repairing Routes

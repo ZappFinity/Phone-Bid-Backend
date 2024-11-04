@@ -34,7 +34,7 @@ class MobileRepairingController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json([
+                return response()->json[(
                     'success' => false,
                     'message' => $validator->errors()->first(),
                 ]);

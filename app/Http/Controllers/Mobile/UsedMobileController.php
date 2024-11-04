@@ -116,6 +116,8 @@ class UsedMobileController extends Controller
             $mobile->is_new = $request->is_new ?? false;
             $mobile->lat = $request->lat;
             $mobile->lng = $request->lng;
+            $mobile->is_for_bid = $request->is_for_bid ?? false;
+            $mobile->bid_starting_price = 'Rs. ' . $request->bid_starting_price ?? 0;
             $mobile->save();
 
             return response()->json([

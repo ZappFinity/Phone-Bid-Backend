@@ -44,7 +44,9 @@ class Mobile extends Model
         'nfc',
         'is_new',
         'lat',
-        'lng'
+        'lng',
+        'is_for_bid',
+        'bid_starting_price'
     ];
 
     public function adPoster()

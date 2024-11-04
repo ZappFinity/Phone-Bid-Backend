@@ -47,6 +47,8 @@ return new class extends Migration {
             $table->boolean('is_new')->default(false);
             $table->text('lat')->default('0.0');
             $table->text('lng')->default('0.0');
+            $table->boolean('is_for_bid')->default(false);
+            $table->string('bid_starting_price')->nullable()->default(00);
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class BidController extends Controller
     public function index()
     {
         // get all new mobiles
-        $mobiles = Mobile::where('is_for_bid', true)->get();
+        $mobiles = Mobile::with('bids')->where('is_for_bid', true)->get();
         return response()->json([
             'success' => true,
             'message' => 'List of all bid mobiles',
@@ -32,7 +32,12 @@ class BidController extends Controller
 
     public function show(string $id)
     {
-        //
+        $mobile = Mobile::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Bid Mobile details',
+            'data' => $mobile
+        ]);
     }
 
     public function edit(string $id)

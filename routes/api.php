@@ -63,6 +63,7 @@ Route::prefix('accessories')->group(function () {
  */
 Route::prefix('bid')->group(function () {
     Route::get('/mobile/list', [BidController::class, 'index']);
+    Route::get('/mobile/{id}', [BidController::class, 'show']);
     Route::get('/place/{id}', [BidController::class, 'placeBid']);
 });
 /**

@@ -363,7 +363,9 @@ class MobileComparisonSeeder extends Seeder
                 'radio' => 'FM radio',
                 'wifi' => 'Wi-Fi 802.11 b/g/n, Wi-Fi Direct, hotspot',
                 'nfc' => 'No',
-                'is_new' => true
+                'is_new' => false,
+                'is_for_bid' =>  true,
+                'bid_starting_price' => '22000'
             ],
         ];
 

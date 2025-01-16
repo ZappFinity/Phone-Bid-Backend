@@ -16,5 +16,6 @@ class MobileRepairing extends Model
         'phone',
         'email',
         'user_id',
+        'status'
     ];
 }

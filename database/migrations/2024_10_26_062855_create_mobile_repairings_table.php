@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('mobile_name');
             $table->text('issue');
             $table->string('device_type')->default('Android');
+            $table->string('status')->default('Pending');
             $table->string('phone');
             $table->string('email')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

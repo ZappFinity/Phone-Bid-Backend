@@ -77,6 +77,7 @@ Route::middleware('auth:sanctum')->prefix('bid')->group(function () {
  */
 Route::middleware('auth:sanctum')->prefix('mobile-repairing')->group(function () {
     Route::post('/store', [MobileRepairingController::class, 'store']);
+    Route::get('/get', [MobileRepairingController::class, 'index']);
 });
 
 /**

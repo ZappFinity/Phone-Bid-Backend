@@ -10,7 +10,13 @@ class MobileRepairingController extends Controller
 {
     public function index()
     {
-        
+        $user = request()->user();
+        $mobile_repairing = MobileRepairing::where('user_id', $user->id) -> get();
+        return response()->json([
+            'success' => true,
+            'message' => 'Mobile Repairing List',
+            'data' => $mobile_repairing,
+        ]);
     }
 
     public function create()

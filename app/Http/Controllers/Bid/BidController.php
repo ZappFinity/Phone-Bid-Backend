@@ -70,4 +70,17 @@ class BidController extends Controller
     {
         //
     }
+
+
+    public function getLoggedInUsersMobilesForBids()
+    {
+        $user = auth()->user();
+        $mobiles = Mobile::with( 'bids')->where('ad_poster_id', $user->id)->get();
+        return response()->json([
+            'success' => true,
+            'message' => 'List of all bid mobiles',
+            'data' => $mobiles
+        ]);
+    }
+    
 }

@@ -50,6 +50,8 @@ Route::prefix('mobile')->group(function () {
     Route::get('/new/show/{id}', [NewMobileController::class, 'show']);
     Route::get('/used', [UsedMobileController::class, 'index']);
     Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
+    //delete 
+    Route::get('/destory/{id}', [UsedMobileController::class, 'destroy']);
 });
 /**
  * Accessories Routes
@@ -66,6 +68,10 @@ Route::prefix('bid')->group(function () {
     Route::get('/mobile/{id}', [BidController::class, 'show']);
     Route::post('/place/{id}', [BidController::class, 'placeBid']);
 });
+Route::middleware('auth:sanctum')->prefix('bid')->group(function () {
+    Route::post('/users_mobile', [BidController::class, 'getLoggedInUsersMobilesForBids']);
+});
+
 /**
  * Mobile Repairing Routes
  */

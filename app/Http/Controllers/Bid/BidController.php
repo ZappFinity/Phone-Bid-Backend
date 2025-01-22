@@ -68,12 +68,10 @@ class BidController extends Controller
 
     public function destroy(string $id)
     {
-        $mobile = Mobile::findOrFail($id);
-        $mobile->delete();
+        Mobile::find($id)->delete();
         return response()->json([
             'success' => true,
             'message' => 'Mobile deleted successfully',
-            'data' => $mobile
         ]);
     }
 

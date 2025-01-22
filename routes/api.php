@@ -51,7 +51,7 @@ Route::prefix('mobile')->group(function () {
     Route::get('/used', [UsedMobileController::class, 'index']);
     Route::get('/used/show/{id}', [UsedMobileController::class, 'show']);
     //delete 
-    Route::delete('/destroy/{id}', [UsedMobileController::class, 'destroy']);
+    Route::get('/destroy/{id}', [UsedMobileController::class, 'destroy']);
 });
 /**
  * Accessories Routes

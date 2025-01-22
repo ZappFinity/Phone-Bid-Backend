@@ -168,6 +168,10 @@ class UsedMobileController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Mobile::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Mobile deleted successfully',
+        ]);
     }
 }

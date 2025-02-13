@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('phone')->nullable()->default('nill');
             $table->string('email')->nullable()->default('nill');
             $table->string('bid_price')->nullable()->default('nill');
+            $table->string('status')->nullable()->default('Pending');
             $table->timestamps();
         });
     }

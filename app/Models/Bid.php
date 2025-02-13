@@ -14,7 +14,8 @@ class Bid extends Model
         'mobile_id',
         'phone',
         'email',
-        'bid_price'
+        'bid_price',
+        'status',
     ];
 
     public function mobile()
